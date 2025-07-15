@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* corphus.ai Design System - Semantic tokens for therapeutic platform */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Brand Colors - corphus.ai palette */
+    --background: 210 20% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,41 +17,62 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Primary - Moss Green */
+    --primary: 120 30% 35%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Lighter Moss Green */
+    --secondary: 120 25% 45%;
+    --secondary-foreground: 210 40% 98%;
 
+    /* Neutral system */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
+    /* Status colors */
+    --success: 120 35% 40%;
+    --success-foreground: 210 40% 98%;
+    
+    --warning: 43 96% 56%;
+    --warning-foreground: 222.2 84% 4.9%;
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 120 30% 35%;
 
-    --radius: 0.5rem;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(120 30% 35%), hsl(120 35% 25%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120 25% 45%), hsl(120 30% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(120 30% 35%), hsl(120 25% 45%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-primary: 0 10px 25px -5px hsl(120 30% 35% / 0.25);
+
+    /* Spacing and sizing */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+
+    /* Transitions */
+    --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -100,6 +121,186 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 { @apply text-3xl lg:text-4xl; }
+  h2 { @apply text-2xl lg:text-3xl; }
+  h3 { @apply text-xl lg:text-2xl; }
+  h4 { @apply text-lg lg:text-xl; }
+}
+
+@layer components {
+  /* Button variants for corphus.ai */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 py-3 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground font-medium px-6 py-3 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  /* Cards for modules */
+  .module-card {
+    @apply bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-primary/20;
+  }
+
+  .status-card {
+    @apply bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/10 rounded-xl p-6;
+  }
+
+  /* Form elements */
+  .form-input {
+    @apply w-full px-4 py-3 border border-input rounded-lg bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-foreground mb-2;
+  }
+
+  /* Dashboard widgets */
+  .metric-card {
+    @apply bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-200 hover:shadow-md hover:scale-105;
+  }
+
+  .metric-value {
+    @apply text-2xl font-bold text-primary;
+  }
+
+  .metric-label {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Navigation */
+  .nav-item {
+    @apply flex items-center px-4 py-3 text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200;
+  }
+
+  .nav-item.active {
+    @apply text-primary bg-primary/10 font-medium;
+  }
+
+  /* Gradients */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  /* Responsive agenda layout improvements */
+  .agenda-container {
+    @apply p-4 md:p-6 space-y-4 md:space-y-6;
+  }
+
+  .agenda-session-card {
+    @apply p-3 md:p-4 border rounded-lg space-y-3 transition-all duration-200 hover:shadow-md;
+  }
+
+  .agenda-session-actions {
+    @apply flex flex-wrap items-center gap-2 text-xs md:text-sm;
+  }
+
+  .agenda-metric-card {
+    @apply transition-all duration-200 hover:shadow-md;
+  }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 639px) {
+    .agenda-session-card {
+      @apply p-3 space-y-2;
+    }
+    
+    .agenda-session-title {
+      @apply text-sm font-medium;
+    }
+    
+    .agenda-session-time {
+      @apply text-base font-semibold;
+    }
+    
+    .agenda-badge {
+      @apply text-xs px-2 py-1;
+    }
+  }
+
+  /* Smooth animations for mobile interactions */
+  .mobile-tap {
+    @apply transition-transform duration-150 active:scale-95;
+  }
+
+  /* Enhanced touch targets for mobile */
+  .mobile-button {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Video call specific animations */
+  .video-fade-in {
+    @apply animate-in fade-in-0 duration-500;
+  }
+
+  .video-slide-up {
+    @apply animate-in slide-in-from-bottom-4 duration-300;
+  }
+
+  .control-button-hover {
+    @apply transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95;
+  }
+
+  .connection-pulse {
+    @apply animate-pulse;
+  }
+
+  .video-container {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Responsive video aspect ratios */
+  .video-aspect {
+    aspect-ratio: 16/9;
+  }
+
+  @media (max-width: 768px) {
+    .video-aspect {
+      aspect-ratio: 4/3;
+    }
+  }
+
+  /* Patient management components */
+  .patient-card {
+    @apply bg-card border border-border rounded-lg p-4 transition-all duration-200 hover:shadow-md hover:border-primary/20;
+  }
+  
+  .patient-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+  
+  .patient-info {
+    @apply space-y-2;
+  }
+  
+  .patient-name {
+    @apply font-medium text-foreground text-lg;
+  }
+  
+  .patient-detail {
+    @apply text-sm text-muted-foreground flex items-center space-x-2;
+  }
+  
+  .action-buttons {
+    @apply flex items-center justify-end space-x-1 mt-4 pt-3 border-t border-border;
   }
 }

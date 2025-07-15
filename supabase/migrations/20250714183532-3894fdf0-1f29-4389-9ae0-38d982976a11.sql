@@ -1,0 +1,5 @@
+-- Inserir planos de assinatura de exemplo
+INSERT INTO public.subscription_plans (name, plan_type, monthly_price, annual_price, monthly_credits, annual_credits, features, is_active) VALUES
+('Plano Bronze', 'bronze', 49.90, 499.00, 100, 1200, '["Análise corporal básica", "Gestão de até 20 pacientes", "Transcrições limitadas", "Relatórios básicos", "Suporte por email"]', true),
+('Plano Silver', 'silver', 99.90, 999.00, 300, 3600, '["Análise corporal avançada", "Gestão ilimitada de pacientes", "Transcrições ilimitadas", "Relatórios avançados", "Videochamadas com IA", "Suporte prioritário", "Integração com calendário"]', true),
+('Plano Gold', 'gold', 199.90, 1999.00, 1000, 12000, '["Todas as funcionalidades", "IA personalizada", "White-label", "API dedicada", "Suporte 24/7", "Treinamento personalizado", "Backups automáticos", "Integrações customizadas"]', true);

@@ -1,0 +1,49 @@
+project_id = "jqystivdecrjuulxyxet"
+
+[functions.send-confirmation-email]
+verify_jwt = false
+
+[functions.real-time-transcription]
+verify_jwt = false
+
+[functions.conversation-analysis]
+verify_jwt = false
+
+[functions.check-subscription]
+verify_jwt = true
+
+[functions.create-checkout]
+verify_jwt = true
+
+[functions.customer-portal]
+verify_jwt = true
+
+[functions.suggest-treatment-plan]
+verify_jwt = true
+
+[functions.create-patient-access]
+verify_jwt = false
+
+[functions.generate-password-reset-link]
+verify_jwt = true
+
+[functions.set-patient-password]
+verify_jwt = true
+
+[functions.send-patient-invite]
+verify_jwt = false
+
+[functions.test-email]
+verify_jwt = true
+
+[functions.send-booking-link]
+verify_jwt = true
+
+[functions.confirm-booking]
+verify_jwt = false
+
+[functions.create-patient-account]
+verify_jwt = false
+
+[functions.send-welcome-email]
+verify_jwt = true

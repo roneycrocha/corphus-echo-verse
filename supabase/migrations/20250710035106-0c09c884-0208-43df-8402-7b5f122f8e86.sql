@@ -1,0 +1,5 @@
+-- Adicionar campos para prompts de IA nas configurações do sistema
+ALTER TABLE public.system_settings 
+ADD COLUMN body_analysis_prompt TEXT DEFAULT 'Gere um relatório detalhado de análise corporal com base nos dados fornecidos pelo paciente. Inclua avaliação postural, mobilidade, força muscular e recomendações específicas.',
+ADD COLUMN follow_up_prompt TEXT DEFAULT 'Crie um relatório de acompanhamento baseado na evolução do paciente. Analise o progresso, identifique melhorias e áreas que precisam de atenção, e sugira ajustes no tratamento.',
+ADD COLUMN therapy_conclusion_prompt TEXT DEFAULT 'Elabore um relatório de conclusão de terapia resumindo todo o processo terapêutico. Inclua objetivos alcançados, evolução do paciente, recomendações para manutenção dos resultados e orientações futuras.';

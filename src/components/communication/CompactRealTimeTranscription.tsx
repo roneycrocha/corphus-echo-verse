@@ -1,0 +1,1 @@
+export { EnhancedRealTimeTranscription as CompactRealTimeTranscription } from './EnhancedRealTimeTranscription';

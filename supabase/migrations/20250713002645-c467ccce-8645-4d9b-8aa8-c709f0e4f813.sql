@@ -1,0 +1,3 @@
+-- Adicionar campo para prompt de análise de conversa nas configurações do sistema
+ALTER TABLE public.system_settings 
+ADD COLUMN conversation_analysis_prompt text DEFAULT 'Com base na transcrição da conversa e nos traços dominantes do paciente (quando disponíveis), gere uma lista de 5-8 perguntas estratégicas para aprofundar o acompanhamento terapêutico. Para cada pergunta, inclua o motivo/objetivo da pergunta. Considere os traços de personalidade do paciente ao formular as perguntas. As perguntas devem explorar: progresso desde a última sessão, dificuldades enfrentadas, aplicação das orientações dadas, estado emocional atual, aspectos específicos relacionados aos traços dominantes, e necessidades de ajuste no tratamento.';

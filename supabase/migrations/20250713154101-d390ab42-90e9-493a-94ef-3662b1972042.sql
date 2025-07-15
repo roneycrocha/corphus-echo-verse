@@ -1,0 +1,4 @@
+-- Adicionar novos campos de prompt para plano terapêutico e plano de ação
+ALTER TABLE public.system_settings 
+ADD COLUMN therapeutic_plan_prompt TEXT DEFAULT 'Elabore um plano terapêutico personalizado com base na análise corporal e histórico do paciente. Inclua objetivos específicos, metodologias de tratamento, cronograma de sessões e marcos de progresso esperados.',
+ADD COLUMN action_plan_prompt TEXT DEFAULT 'Crie um plano de ação detalhado com exercícios e atividades específicas para o paciente. Inclua instruções claras, frequência recomendada, progressão gradual e critérios de avaliação de desempenho.';
